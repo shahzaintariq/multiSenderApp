@@ -1,7 +1,6 @@
 import detectEthereumProvider from '@metamask/detect-provider';
 import { ethers, Contract } from 'ethers';
 import abi from './coin.json';
-import tokenAbi from './token.json'
 
 const getBlockchain = (contractAddress) =>
   new Promise( async (resolve, reject) => {
@@ -17,12 +16,6 @@ const getBlockchain = (contractAddress) =>
         signer
       );
 
-      // const tokenContract = new Contract(
-      //   tokenAddress,
-      //   tokenAbi,
-      //   signer
-      // )
-      
       resolve({contract, networkId, account,provider,signer});
       return;
     }
